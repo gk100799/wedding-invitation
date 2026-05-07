@@ -76,34 +76,35 @@ export default function Day1() {
         ))}
       </div>
 
-      <div className="relative z-10 px-5 sm:px-6 pt-12 sm:pt-14 pb-6 sm:pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col min-h-0">
+      <div className="relative z-10 px-5 sm:px-6 pt-10 sm:pt-14 pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col justify-center">
         <p className="text-[10px] tracking-[0.3em] text-deepRose/70 mb-2">
           {day1.label.toUpperCase()} · {day1.date.toUpperCase()}
         </p>
-        <h2 className="font-display italic text-[clamp(1.6rem,7vw,2.6rem)] leading-[0.95] text-deepRose mb-5 sm:mb-7">
+        <h2 className="font-display italic text-[clamp(1.5rem,6.5vw,2.4rem)] leading-[0.95] text-deepRose mb-4 sm:mb-6">
           {day1.mood}.
         </h2>
 
-        <div className="scene-scroll flex flex-col gap-2.5 sm:gap-3 flex-1 min-h-0 pb-2" style={{ perspective: 1200 }}>
+        <div className="flex flex-col gap-2 sm:gap-2.5" style={{ perspective: 1200 }}>
           {day1.events.map((event, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20, rotateX: -14 }}
+              initial={{ opacity: 0, y: 16, rotateX: -12 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.65, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, amount: 0.15 }}
-              className="bg-cream/90 backdrop-blur rounded-lg p-3.5 sm:p-4 shadow-lg shadow-deepRose/10"
+              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.1 }}
+              className="bg-cream/90 backdrop-blur rounded-lg p-3 sm:p-3.5 shadow-md shadow-deepRose/10"
               style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="flex items-baseline justify-between mb-1">
-                <p className="font-display italic text-xl sm:text-2xl text-ink">{event.name}</p>
-                <p className="text-deepRose text-[11px] sm:text-xs tracking-wider font-medium">
+              <div className="flex items-baseline justify-between mb-0.5">
+                <p className="font-display italic text-base sm:text-xl text-ink">{event.name}</p>
+                <p className="text-deepRose text-[11px] tracking-wider font-medium whitespace-nowrap ml-2">
                   {event.time}
                 </p>
               </div>
-              <p className="text-ink/70 text-xs sm:text-sm mb-1.5 leading-snug">{event.blurb}</p>
-              <p className="text-ink/50 text-[10px]">{event.venue}</p>
-              <p className="text-deepRose/70 text-[10px] italic mt-0.5">{event.dressCode}</p>
+              <p className="text-ink/65 text-[11px] sm:text-xs leading-snug">{event.blurb}</p>
+              {event.dressCode !== '—' && (
+                <p className="text-deepRose/80 text-[10px] italic mt-1">{event.dressCode}</p>
+              )}
             </motion.div>
           ))}
         </div>

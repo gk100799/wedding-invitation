@@ -25,19 +25,9 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  /* mandatory: the page never stops with two sections half-visible.
-     For sections taller than viewport (Day1, Day2, Story), content
-     scrolls inside the section instead of growing it past 100svh. */
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-snap-type: none;
-    scroll-behavior: auto;
-  }
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 
 .font-display {
@@ -49,27 +39,26 @@ html {
 }
 
 .scene {
-  /* exactly one viewport — eliminates within-section page scroll that
-     was confusing the snap algorithm. Content longer than 100svh uses
-     overflow-y:auto on an inner container instead. */
-  height: 100svh;
+  /* Each Swiper slide hosts one .scene at full slide height. */
+  height: 100%;
   width: 100%;
   position: relative;
   overflow: hidden;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
-/* Inner scroll containers — used by tall sections (Day1, Day2, Story)
-   so their content scrolls inside while the section itself stays 100svh. */
-.scene-scroll {
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+/* Swiper pagination styling — match the cinematic theme. */
+.wedding-swiper .swiper-pagination-bullet {
+  background: rgba(245, 237, 224, 0.35);
+  opacity: 1;
+  width: 6px;
+  height: 6px;
+  transition: all 0.3s ease;
 }
-.scene-scroll::-webkit-scrollbar {
-  display: none;
+.wedding-swiper .swiper-pagination-bullet-active {
+  background: #d9b15f;
+  width: 8px;
+  height: 8px;
+  box-shadow: 0 0 10px rgba(217, 177, 95, 0.85);
 }
 
 /* Reduced motion respect */

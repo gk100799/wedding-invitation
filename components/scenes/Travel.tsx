@@ -18,43 +18,43 @@ function TicketCard({ leg, delay }: { leg: Leg; delay: number }) {
       style={{ transformStyle: 'preserve-3d', perspective: 1200 }}
     >
       <div className="relative bg-cream/[0.04] backdrop-blur border border-cream/15 rounded-2xl overflow-hidden">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 px-5 sm:px-6 pt-5">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3 px-4 sm:px-5 pt-3 sm:pt-4">
           <p className="text-[10px] tracking-[0.3em] text-cream/55 whitespace-nowrap">
             {leg.label.toUpperCase()} · {leg.date.toUpperCase()}
           </p>
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gradient-to-br from-gold/15 to-rose/15 border border-gold/40 shadow-[0_0_20px_rgba(217,177,95,0.15)] self-start sm:self-auto">
+          <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-gradient-to-br from-gold/15 to-rose/15 border border-gold/40 self-start sm:self-auto">
             <span className="text-cream/60 text-[8px] sm:text-[9px] tracking-[0.2em] font-body">TRAIN</span>
-            <span className="text-gold font-mono text-xs sm:text-sm tracking-wider font-semibold">№ {leg.train}</span>
+            <span className="text-gold font-mono text-[11px] sm:text-xs tracking-wider font-semibold">№ {leg.train}</span>
           </div>
         </div>
 
-        <div className="px-5 sm:px-6 py-6 grid grid-cols-[1fr_auto_1fr] gap-3 items-center">
+        <div className="px-4 sm:px-5 py-3 sm:py-4 grid grid-cols-[1fr_auto_1fr] gap-2 items-center">
           <div className="text-left">
-            <p className="font-display italic text-3xl sm:text-4xl text-cream leading-none">
+            <p className="font-display italic text-2xl sm:text-3xl text-cream leading-none">
               {leg.departure.time}
             </p>
-            <p className="text-cream/85 text-sm mt-2">{leg.departure.station}</p>
-            <p className="text-cream/45 text-[10px] tracking-[0.2em] mt-0.5">
+            <p className="text-cream/85 text-[11px] sm:text-sm mt-1">{leg.departure.station}</p>
+            <p className="text-cream/45 text-[9px] tracking-[0.2em] mt-0.5">
               {leg.departure.code}
             </p>
           </div>
 
           <div className="flex flex-col items-center text-cream/40">
-            <svg width="44" height="14" viewBox="0 0 44 14" fill="none">
+            <svg width="40" height="12" viewBox="0 0 44 14" fill="none">
               <line x1="2" y1="7" x2="36" y2="7" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
               <path d="M 34 2 L 42 7 L 34 12" stroke="currentColor" strokeWidth="1" fill="none" />
             </svg>
-            <p className="font-display italic text-[10px] mt-1 text-cream/40">overnight</p>
+            <p className="font-display italic text-[9px] mt-0.5 text-cream/40">overnight</p>
           </div>
 
           <div className="text-right">
-            <p className="font-display italic text-3xl sm:text-4xl text-cream leading-none">
+            <p className="font-display italic text-2xl sm:text-3xl text-cream leading-none">
               {leg.arrival.time}
             </p>
-            <p className="text-cream/85 text-sm mt-2">{leg.arrival.station}</p>
-            <p className="text-cream/45 text-[10px] tracking-[0.2em] mt-0.5">{leg.arrival.code}</p>
+            <p className="text-cream/85 text-[11px] sm:text-sm mt-1">{leg.arrival.station}</p>
+            <p className="text-cream/45 text-[9px] tracking-[0.2em] mt-0.5">{leg.arrival.code}</p>
             {'date' in leg.arrival && leg.arrival.date && (
-              <p className="text-cream/40 text-[10px] mt-1 italic">{leg.arrival.date}</p>
+              <p className="text-cream/40 text-[9px] mt-0.5 italic">{leg.arrival.date}</p>
             )}
           </div>
         </div>
@@ -65,8 +65,8 @@ function TicketCard({ leg, delay }: { leg: Leg; delay: number }) {
           <div className="border-t border-dashed border-cream/15 mx-5" />
         </div>
 
-        <div className="px-5 sm:px-6 py-4">
-          <p className="text-cream/60 text-xs sm:text-sm leading-relaxed italic">{leg.note}</p>
+        <div className="px-4 sm:px-5 py-2.5">
+          <p className="text-cream/60 text-[11px] sm:text-xs leading-snug italic">{leg.note}</p>
         </div>
       </div>
     </motion.div>
@@ -310,14 +310,9 @@ export default function Travel() {
   return (
     <section
       ref={ref}
-      className="scene relative bg-[#050a18] text-cream flex flex-col"
+      className="scene relative bg-[#050a18] text-cream flex flex-col items-center justify-center px-4 py-8 sm:py-12"
     >
-      <div
-        className={`scene-scroll w-full flex-1 min-h-0 flex flex-col items-center px-4 ${
-          showTrain ? 'py-10 sm:py-14' : 'justify-center py-12 sm:py-16'
-        }`}
-      >
-      <div className="max-w-md text-center mb-8 sm:mb-12">
+      <div className="max-w-md text-center mb-6 sm:mb-10">
         <p className="text-[10px] tracking-[0.3em] text-cream/50 mb-3">
           {showTrain ? 'THE JOURNEY' : 'WHERE'}
         </p>
@@ -348,40 +343,26 @@ export default function Travel() {
             />
           </div>
 
-          <div className="w-full flex flex-col gap-8 sm:gap-10 items-center">
+          <div className="w-full flex flex-col gap-4 sm:gap-6 items-center">
             <TicketCard leg={travel.outbound} delay={0} />
             <TicketCard leg={travel.return} delay={0.1} />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="mt-14 sm:mt-20 max-w-md w-full text-center px-2"
+          <a
+            href={wedding.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-md border border-cream/25 text-cream/85 text-[11px] tracking-[0.2em] hover:border-rose hover:text-rose transition-colors"
           >
-            <p className="text-[10px] tracking-[0.3em] text-cream/50 mb-3">THE VENUE</p>
-            <p className="font-display italic text-2xl sm:text-3xl text-cream leading-tight mb-1">
-              {wedding.venue}
-            </p>
-            <p className="text-cream/55 text-sm mb-6">{wedding.city}</p>
-            <a
-              href={wedding.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-cream/25 text-cream/85 text-xs tracking-[0.18em] hover:border-rose hover:text-rose transition-colors"
-            >
-              OPEN IN GOOGLE MAPS
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 17 17 7M9 7h8v8" />
-              </svg>
-            </a>
-          </motion.div>
+            VENUE ON GOOGLE MAPS
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 17 17 7M9 7h8v8" />
+            </svg>
+          </a>
         </>
       ) : (
         <VenueShowcase />
       )}
-      </div>
     </section>
   );
 }

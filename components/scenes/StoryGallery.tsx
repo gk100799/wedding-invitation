@@ -13,14 +13,14 @@ export default function StoryGallery() {
   });
 
   return (
-    <section ref={ref} className="scene bg-[#14100c] text-cream flex flex-col">
-      <div className="px-6 pt-12 sm:pt-16 max-w-2xl mx-auto w-full">
+    <section ref={ref} className="scene bg-[#14100c] text-cream flex flex-col justify-center py-8 sm:py-12">
+      <div className="px-6 max-w-2xl mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          className="text-[10px] tracking-[0.3em] text-cream/50 mb-3"
+          className="text-[10px] tracking-[0.3em] text-cream/50 mb-2"
         >
           OUR STORY
         </motion.p>
@@ -29,13 +29,13 @@ export default function StoryGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15 }}
           viewport={{ once: true }}
-          className="font-display italic text-[clamp(1.6rem,6.5vw,2.6rem)] leading-[1.1] mb-6 sm:mb-8"
+          className="font-display italic text-[clamp(1.4rem,5.5vw,2rem)] leading-[1.1] mb-5 sm:mb-7"
         >
           two strangers,<br />a few coffees,<br />some chaos.
         </motion.h2>
       </div>
 
-      <div className="scene-scroll flex flex-col gap-10 sm:gap-12 px-4 sm:px-12 max-w-3xl mx-auto w-full flex-1 min-h-0 pb-10">
+      <div className="flex flex-col gap-5 sm:gap-7 px-4 sm:px-12 max-w-3xl mx-auto w-full">
         {story.map((item, i) => (
           <Polaroid
             key={i}
@@ -68,8 +68,8 @@ function Polaroid({
   const isLandscape = item.orientation === 'landscape';
   const aspectClass = isLandscape ? 'aspect-[5/4]' : 'aspect-[4/5]';
   const widthClass = isLandscape
-    ? 'max-w-[320px] sm:max-w-[400px]'
-    : 'max-w-[260px] sm:max-w-[320px]';
+    ? 'max-w-[260px] sm:max-w-[340px]'
+    : 'max-w-[200px] sm:max-w-[260px]';
   const alignClass = isEven
     ? 'self-center sm:self-start'
     : 'self-center sm:self-end';

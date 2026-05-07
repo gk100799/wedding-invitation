@@ -153,6 +153,16 @@ export default function ColdOpen() {
         />
       </motion.div>
 
+      {/* Wedding hashtag */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3.3, duration: 1 }}
+        className="relative z-10 mt-3 text-[11px] sm:text-xs tracking-[0.32em] text-rose/85 uppercase font-body font-medium drop-shadow-[0_0_8px_rgba(212,83,126,0.4)]"
+      >
+        {wedding.hashtag}
+      </motion.p>
+
       {/* Scroll prompt — glowing pill + animated double chevron */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}

@@ -108,34 +108,35 @@ export default function Day2() {
         />
       </div>
 
-      <div className="relative z-10 px-5 sm:px-6 pt-12 sm:pt-14 pb-6 sm:pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col min-h-0 h-full">
+      <div className="relative z-10 px-5 sm:px-6 pt-10 sm:pt-14 pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col justify-center">
         <p className="text-[10px] tracking-[0.3em] text-cream/60 mb-2">
           {day2.label.toUpperCase()} · {day2.date.toUpperCase()}
         </p>
-        <h2 className="font-display italic text-[clamp(1.6rem,7vw,2.6rem)] leading-[0.95] text-cream mb-5 sm:mb-7">
+        <h2 className="font-display italic text-[clamp(1.5rem,6.5vw,2.4rem)] leading-[0.95] text-cream mb-4 sm:mb-6">
           {day2.mood}.
         </h2>
 
-        <div className="scene-scroll flex flex-col gap-2.5 sm:gap-3 flex-1 min-h-0 pb-2" style={{ perspective: 1200 }}>
+        <div className="flex flex-col gap-2 sm:gap-2.5" style={{ perspective: 1200 }}>
           {day2.events.map((event, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20, rotateX: -14 }}
+              initial={{ opacity: 0, y: 16, rotateX: -12 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, amount: 0.15 }}
-              className="bg-cream/[0.05] backdrop-blur border border-cream/15 rounded-lg p-3.5 sm:p-4 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.5)]"
+              transition={{ duration: 0.65, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, amount: 0.1 }}
+              className="bg-cream/[0.05] backdrop-blur border border-cream/15 rounded-lg p-3 sm:p-3.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]"
               style={{ transformStyle: 'preserve-3d' }}
             >
-              <div className="flex items-baseline justify-between mb-1">
-                <p className="font-display italic text-xl sm:text-2xl text-cream">{event.name}</p>
-                <p className="text-rose text-[11px] sm:text-xs tracking-wider font-medium">
+              <div className="flex items-baseline justify-between mb-0.5">
+                <p className="font-display italic text-base sm:text-xl text-cream">{event.name}</p>
+                <p className="text-rose text-[11px] tracking-wider font-medium whitespace-nowrap ml-2">
                   {event.time}
                 </p>
               </div>
-              <p className="text-cream/70 text-xs sm:text-sm mb-1.5 leading-snug">{event.blurb}</p>
-              <p className="text-cream/50 text-[10px]">{event.venue}</p>
-              <p className="text-rose/80 text-[10px] italic mt-0.5">{event.dressCode}</p>
+              <p className="text-cream/70 text-[11px] sm:text-xs leading-snug">{event.blurb}</p>
+              {event.dressCode !== '—' && (
+                <p className="text-rose/80 text-[10px] italic mt-1">{event.dressCode}</p>
+              )}
             </motion.div>
           ))}
         </div>
