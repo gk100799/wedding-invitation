@@ -13,8 +13,8 @@ export default function StoryGallery() {
   });
 
   return (
-    <section ref={ref} className="scene bg-[#14100c] text-cream py-24">
-      <div className="px-6 max-w-2xl mx-auto">
+    <section ref={ref} className="scene bg-[#14100c] text-cream flex flex-col">
+      <div className="px-6 pt-12 sm:pt-16 max-w-2xl mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,13 +29,13 @@ export default function StoryGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15 }}
           viewport={{ once: true }}
-          className="font-display italic text-[clamp(1.8rem,7vw,3rem)] leading-[1.1] mb-12"
+          className="font-display italic text-[clamp(1.6rem,6.5vw,2.6rem)] leading-[1.1] mb-6 sm:mb-8"
         >
           two strangers,<br />a few coffees,<br />some chaos.
         </motion.h2>
       </div>
 
-      <div className="flex flex-col gap-14 sm:gap-16 px-4 sm:px-12 max-w-3xl mx-auto">
+      <div className="scene-scroll flex flex-col gap-10 sm:gap-12 px-4 sm:px-12 max-w-3xl mx-auto w-full flex-1 min-h-0 pb-10">
         {story.map((item, i) => (
           <Polaroid
             key={i}

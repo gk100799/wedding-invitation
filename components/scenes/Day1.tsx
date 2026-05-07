@@ -76,15 +76,15 @@ export default function Day1() {
         ))}
       </div>
 
-      <div className="relative z-10 px-5 sm:px-6 pt-14 sm:pt-16 pb-10 sm:pb-12 max-w-2xl mx-auto w-full flex-1 flex flex-col">
+      <div className="relative z-10 px-5 sm:px-6 pt-12 sm:pt-14 pb-6 sm:pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col min-h-0">
         <p className="text-[10px] tracking-[0.3em] text-deepRose/70 mb-2">
           {day1.label.toUpperCase()} · {day1.date.toUpperCase()}
         </p>
-        <h2 className="font-display italic text-[clamp(1.6rem,7vw,2.6rem)] leading-[0.95] text-deepRose mb-6 sm:mb-8">
+        <h2 className="font-display italic text-[clamp(1.6rem,7vw,2.6rem)] leading-[0.95] text-deepRose mb-5 sm:mb-7">
           {day1.mood}.
         </h2>
 
-        <div className="flex flex-col gap-2.5 sm:gap-3" style={{ perspective: 1200 }}>
+        <div className="scene-scroll flex flex-col gap-2.5 sm:gap-3 flex-1 min-h-0 pb-2" style={{ perspective: 1200 }}>
           {day1.events.map((event, i) => (
             <motion.div
               key={i}

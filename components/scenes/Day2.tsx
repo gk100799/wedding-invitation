@@ -38,7 +38,7 @@ export default function Day2() {
 
   return (
     <section
-      className="scene relative text-cream"
+      className="scene relative text-cream flex flex-col"
       style={{
         background: 'linear-gradient(180deg, #1a0a2e 0%, #2a0d3e 50%, #4a1b48 100%)',
       }}
@@ -108,15 +108,15 @@ export default function Day2() {
         />
       </div>
 
-      <div className="relative z-10 px-5 sm:px-6 pt-14 sm:pt-16 pb-10 sm:pb-12 max-w-2xl mx-auto">
+      <div className="relative z-10 px-5 sm:px-6 pt-12 sm:pt-14 pb-6 sm:pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col min-h-0 h-full">
         <p className="text-[10px] tracking-[0.3em] text-cream/60 mb-2">
           {day2.label.toUpperCase()} · {day2.date.toUpperCase()}
         </p>
-        <h2 className="font-display italic text-[clamp(1.6rem,7vw,2.6rem)] leading-[0.95] text-cream mb-6 sm:mb-8">
+        <h2 className="font-display italic text-[clamp(1.6rem,7vw,2.6rem)] leading-[0.95] text-cream mb-5 sm:mb-7">
           {day2.mood}.
         </h2>
 
-        <div className="flex flex-col gap-2.5 sm:gap-3" style={{ perspective: 1200 }}>
+        <div className="scene-scroll flex flex-col gap-2.5 sm:gap-3 flex-1 min-h-0 pb-2" style={{ perspective: 1200 }}>
           {day2.events.map((event, i) => (
             <motion.div
               key={i}

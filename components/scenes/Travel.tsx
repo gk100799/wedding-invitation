@@ -310,9 +310,14 @@ export default function Travel() {
   return (
     <section
       ref={ref}
-      className="scene relative bg-[#050a18] text-cream py-16 sm:py-20 px-4 flex flex-col items-center justify-center"
+      className="scene relative bg-[#050a18] text-cream flex flex-col"
     >
-      <div className="max-w-md text-center mb-10 sm:mb-12">
+      <div
+        className={`scene-scroll w-full flex-1 min-h-0 flex flex-col items-center px-4 ${
+          showTrain ? 'py-10 sm:py-14' : 'justify-center py-12 sm:py-16'
+        }`}
+      >
+      <div className="max-w-md text-center mb-8 sm:mb-12">
         <p className="text-[10px] tracking-[0.3em] text-cream/50 mb-3">
           {showTrain ? 'THE JOURNEY' : 'WHERE'}
         </p>
@@ -376,6 +381,7 @@ export default function Travel() {
       ) : (
         <VenueShowcase />
       )}
+      </div>
     </section>
   );
 }
