@@ -13,7 +13,7 @@ export default function StoryGallery() {
   });
 
   return (
-    <section ref={ref} className="scene bg-[#14100c] text-cream flex flex-col justify-center py-8 sm:py-12">
+    <section ref={ref} className="scene bg-[#14100c] text-cream flex flex-col justify-center py-16 sm:py-20">
       <div className="px-6 max-w-2xl mx-auto w-full">
         <motion.p
           initial={{ opacity: 0, y: 20 }}

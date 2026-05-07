@@ -76,7 +76,7 @@ export default function Day1() {
         ))}
       </div>
 
-      <div className="relative z-10 px-5 sm:px-6 pt-10 sm:pt-14 pb-8 max-w-2xl mx-auto w-full flex-1 flex flex-col justify-center">
+      <div className="relative z-10 px-5 sm:px-6 pt-16 sm:pt-20 pb-14 sm:pb-16 max-w-2xl mx-auto w-full flex-1 flex flex-col justify-center">
         <p className="text-[10px] tracking-[0.3em] text-deepRose/70 mb-2">
           {day1.label.toUpperCase()} · {day1.date.toUpperCase()}
         </p>

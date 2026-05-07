@@ -1,23 +1,11 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { couple } from '@/lib/data';
 
 export default function MatchScene() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
-
-  // Phone scales/rotates as scroll progresses
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1.05]);
-  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-20, 0, 20]);
-  const matchOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
-
   return (
-    <section ref={ref} className="scene bg-ink flex flex-col text-cream relative overflow-hidden">
+    <section className="scene bg-ink flex flex-col text-cream relative overflow-hidden">
       {/* Ambient radial glow behind the phone */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -52,16 +40,25 @@ export default function MatchScene() {
         })}
 
         <motion.div
-          style={{ scale, rotateY, perspective: 1000, transformStyle: 'preserve-3d' }}
+          initial={{ scale: 0.85, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          style={{ perspective: 1000, transformStyle: 'preserve-3d' }}
+          className="relative"
+        >
+        <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="relative"
         >
           {/* Phone frame */}
           <div className="w-[230px] sm:w-[280px] aspect-[260/520] bg-[#1a1a1a] rounded-[36px] p-2 shadow-[0_30px_80px_-20px_rgba(212,83,126,0.5)]">
             <div className="w-full h-full rounded-[28px] overflow-hidden bg-rose flex flex-col items-center justify-center px-5 relative">
               <motion.div
-                style={{ opacity: matchOpacity }}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{ delay: 0.4, duration: 0.7 }}
                 className="text-center"
               >
                 <p className="font-display italic text-2xl sm:text-3xl text-cream mb-3">It's a match.</p>
@@ -95,6 +92,7 @@ export default function MatchScene() {
               </motion.div>
             </div>
           </div>
+        </motion.div>
         </motion.div>
       </div>
 

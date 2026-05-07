@@ -76,13 +76,6 @@ export const day1 = {
       venue: 'Maratha Mandir',
     },
     {
-      time: '1:30 PM',
-      name: 'Lunch',
-      dressCode: '—',
-      blurb: 'Eat. We will not skip dessert.',
-      venue: 'Maratha Mandir',
-    },
-    {
       time: '6:00 PM',
       name: 'Baraat & Sangeet',
       dressCode: 'Lehenga / Indo-western',

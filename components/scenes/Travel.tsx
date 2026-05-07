@@ -310,7 +310,7 @@ export default function Travel() {
   return (
     <section
       ref={ref}
-      className="scene relative bg-[#050a18] text-cream flex flex-col items-center justify-center px-4 py-8 sm:py-12"
+      className="scene relative bg-[#050a18] text-cream flex flex-col items-center justify-center px-4 py-14 sm:py-20"
     >
       <div className="max-w-md text-center mb-6 sm:mb-10">
         <p className="text-[10px] tracking-[0.3em] text-cream/50 mb-3">
