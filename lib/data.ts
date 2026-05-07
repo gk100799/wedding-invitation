@@ -20,6 +20,8 @@ export const wedding = {
   date: '8 July 2026',
   // KEEP this dot-spaced format — RSVP.tsx splits on '.'
   shortDate: '08 . 07 . 26',
+  // Two-day span the wedding actually covers (Day 1 + Day 2).
+  dateRange: '7 & 8 July 2026',
   city: 'Belagavi',
   venue: 'Maratha Mandir Marriage Hall',
   hashtag: '#KrishnaKaMadhu',

@@ -74,10 +74,10 @@ export default function RSVP() {
               'linear-gradient(120deg, #f5ede0 0%, #f3e1bb 35%, #d9b15f 50%, #f3e1bb 65%, #f5ede0 100%)',
           }}
         >
-          see you on<br />the {wedding.shortDate.split('.')[0].trim()}th.
+          see you in<br />{wedding.city}.
         </h2>
         <p className="text-cream/60 text-sm mb-8">
-          {wedding.date} · {wedding.city}
+          {wedding.dateRange}
         </p>
 
         {showTravelNote && (
