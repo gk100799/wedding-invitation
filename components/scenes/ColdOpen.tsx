@@ -98,9 +98,9 @@ export default function ColdOpen() {
       {/* "SAVE THE DATE" pre-text — letter-spacing expands as it appears */}
       <motion.p
         initial={{ opacity: 0, letterSpacing: '0.1em' }}
-        animate={{ opacity: 0.7, letterSpacing: '0.4em' }}
+        animate={{ opacity: 1, letterSpacing: '0.42em' }}
         transition={{ delay: 0.6, duration: 1.4 }}
-        className="text-[10px] text-cream/65 mb-4 relative z-10 uppercase font-body"
+        className="text-xs sm:text-sm text-gold mb-5 relative z-10 uppercase font-body font-semibold drop-shadow-[0_0_10px_rgba(217,177,95,0.5)]"
       >
         save the date
       </motion.p>

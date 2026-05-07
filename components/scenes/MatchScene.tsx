@@ -69,7 +69,7 @@ export default function MatchScene() {
                   <p className="font-display italic text-xl sm:text-2xl text-gold drop-shadow-[0_0_8px_rgba(217,177,95,0.5)]">
                     {couple.groom.name}
                   </p>
-                  <p className="font-display italic text-rose/90 text-sm my-0.5">&</p>
+                  <p className="font-display italic text-cream/95 text-base sm:text-lg my-1">&amp;</p>
                   <p className="font-display italic text-xl sm:text-2xl text-gold drop-shadow-[0_0_8px_rgba(217,177,95,0.5)]">
                     {couple.bride.name}
                   </p>
