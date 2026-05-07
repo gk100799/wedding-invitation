@@ -129,15 +129,29 @@ export default function ColdOpen() {
         to a wedding. yes, actually.
       </motion.p>
 
-      {/* Date hint */}
-      <motion.p
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 0.65, y: 0 }}
+      {/* Date hint — flanked, gold-glowing pill */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.8, duration: 1 }}
-        className="text-[11px] tracking-[0.35em] text-gold/80 mt-5 relative z-10 uppercase font-body"
+        className="relative z-10 mt-7 flex items-center gap-3 sm:gap-4"
       >
-        {wedding.city} · {wedding.date}
-      </motion.p>
+        <motion.span
+          className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-gold"
+          initial={{ scaleX: 0, transformOrigin: 'right' }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 3.0, duration: 0.8 }}
+        />
+        <p className="text-[13px] sm:text-sm tracking-[0.35em] text-gold uppercase font-body font-semibold drop-shadow-[0_0_10px_rgba(217,177,95,0.55)]">
+          {wedding.city} · {wedding.date}
+        </p>
+        <motion.span
+          className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-gold"
+          initial={{ scaleX: 0, transformOrigin: 'left' }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 3.0, duration: 0.8 }}
+        />
+      </motion.div>
 
       {/* Scroll prompt — glowing pill + animated double chevron */}
       <motion.div

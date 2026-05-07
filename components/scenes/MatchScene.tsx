@@ -64,10 +64,19 @@ export default function MatchScene() {
                 style={{ opacity: matchOpacity }}
                 className="text-center"
               >
-                <p className="font-display italic text-2xl sm:text-3xl text-cream mb-2">It's a match.</p>
-                <p className="text-[11px] sm:text-xs text-cream/80 mb-6 leading-relaxed">
-                  {couple.groom.name} and {couple.bride.name} have liked each other.
-                </p>
+                <p className="font-display italic text-2xl sm:text-3xl text-cream mb-3">It's a match.</p>
+                <div className="mb-5 leading-tight">
+                  <p className="font-display italic text-xl sm:text-2xl text-gold drop-shadow-[0_0_8px_rgba(217,177,95,0.5)]">
+                    {couple.groom.name}
+                  </p>
+                  <p className="font-display italic text-rose/90 text-sm my-0.5">&</p>
+                  <p className="font-display italic text-xl sm:text-2xl text-gold drop-shadow-[0_0_8px_rgba(217,177,95,0.5)]">
+                    {couple.bride.name}
+                  </p>
+                  <p className="text-[10px] sm:text-[11px] text-cream/65 mt-2 tracking-wide">
+                    have liked each other.
+                  </p>
+                </div>
                 <div className="flex items-center justify-center gap-3">
                   <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-cream flex items-center justify-center text-deepRose font-medium border-2 border-white shadow-lg">
                     {couple.groom.initial}

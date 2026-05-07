@@ -94,34 +94,160 @@ function VenueShowcase() {
             className="object-cover"
           />
         ) : (
-          // Placeholder — replace by setting wedding.venuePhoto in lib/data.ts
+          // Stylized venue art (no real photo). Set wedding.venuePhoto in lib/data.ts to swap.
           <div
             className="absolute inset-0"
             style={{
               background:
-                'radial-gradient(ellipse at 30% 30%, rgba(217,177,95,0.4) 0%, transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(212,83,126,0.4) 0%, transparent 55%), linear-gradient(135deg, #2a0d3e 0%, #4a1b48 100%)',
+                'radial-gradient(ellipse at 50% 100%, rgba(250,199,117,0.32) 0%, transparent 55%), radial-gradient(ellipse at 30% 20%, rgba(217,177,95,0.22) 0%, transparent 55%), radial-gradient(ellipse at 70% 30%, rgba(212,83,126,0.32) 0%, transparent 55%), linear-gradient(180deg, #1a0a2e 0%, #2a0d3e 55%, #4a1b48 100%)',
             }}
           >
-            {/* Soft architectural silhouette hint */}
+            {/* Festive twinkling lights */}
+            {[...Array(14)].map((_, i) => {
+              const x = (i * 73) % 400;
+              const y = 25 + ((i * 41) % 70);
+              const delay = (i * 0.4) % 3;
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 rounded-full bg-gold shadow-[0_0_6px_rgba(217,177,95,0.9)]"
+                  style={{ left: `${(x / 400) * 100}%`, top: `${(y / 300) * 100}%` }}
+                  animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.4, 0.8] }}
+                  transition={{ duration: 2.5, delay, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              );
+            })}
+
             <svg
               viewBox="0 0 400 300"
-              className="absolute bottom-0 left-0 right-0 w-full opacity-25"
-              preserveAspectRatio="xMidYMax meet"
+              className="absolute inset-0 w-full h-full"
+              preserveAspectRatio="xMidYMid slice"
             >
+              {/* Distant skyline silhouette */}
               <path
-                d="M0,300 L0,180 L40,180 L40,140 L80,140 L80,180 L120,180 L120,100 L150,70 L180,100 L180,180 L220,180 L220,90 L260,60 L300,90 L300,180 L340,180 L340,150 L380,150 L380,180 L400,180 L400,300 Z"
-                fill="rgba(245,237,224,0.55)"
+                d="M 0 235 L 25 225 L 50 232 L 75 220 L 100 230 L 130 222 L 270 222 L 300 230 L 325 220 L 350 232 L 380 225 L 400 230 L 400 245 L 0 245 Z"
+                fill="rgba(245,237,224,0.06)"
               />
+
+              {/* String-light arc across top */}
               <path
-                d="M150,70 L150,30 M260,60 L260,20 L268,20 L268,60"
-                stroke="rgba(245,237,224,0.5)"
-                strokeWidth="2"
+                d="M -10 60 Q 100 90 200 75 Q 300 90 410 60"
                 fill="none"
+                stroke="rgba(245,237,224,0.18)"
+                strokeWidth="0.6"
               />
+              {[20, 60, 110, 160, 200, 240, 290, 340, 380].map((cx, i) => {
+                const cy = 75 + Math.cos(((cx - 200) / 200) * Math.PI) * 12;
+                return (
+                  <g key={`ll-${i}`}>
+                    <line x1={cx} y1={cy - 4} x2={cx} y2={cy + 4} stroke="rgba(245,237,224,0.18)" strokeWidth="0.5" />
+                    <circle cx={cx} cy={cy + 6} r="1.6" fill="rgba(250,199,117,0.85)" />
+                    <circle cx={cx} cy={cy + 6} r="3.5" fill="rgba(250,199,117,0.18)" />
+                  </g>
+                );
+              })}
+
+              {/* Hanging garland of marigolds */}
+              <path
+                d="M 30 110 Q 200 165 370 110"
+                fill="none"
+                stroke="rgba(212,83,126,0.45)"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+              />
+              {[40, 80, 120, 160, 200, 240, 280, 320, 360].map((mx, i) => {
+                const my = 110 + Math.sin(((mx - 200) / 170) * Math.PI) * 30;
+                return (
+                  <circle
+                    key={`mar-${i}`}
+                    cx={mx}
+                    cy={my}
+                    r="2.6"
+                    fill="rgba(250,199,117,0.85)"
+                  />
+                );
+              })}
+
+              {/* Side mini pavilion (left) */}
+              <g>
+                <rect x="62" y="172" width="48" height="68" fill="rgba(245,237,224,0.42)" />
+                <path d="M 60 172 Q 60 144 86 144 Q 112 144 112 172 Z" fill="rgba(245,237,224,0.5)" stroke="rgba(217,177,95,0.55)" strokeWidth="0.6" />
+                <line x1="86" y1="144" x2="86" y2="124" stroke="rgba(217,177,95,0.7)" strokeWidth="1.4" />
+                <circle cx="86" cy="121" r="2" fill="rgba(217,177,95,0.95)" />
+                <rect x="79" y="190" width="14" height="22" fill="rgba(250,199,117,0.32)" />
+              </g>
+
+              {/* Side mini pavilion (right) */}
+              <g>
+                <rect x="290" y="172" width="48" height="68" fill="rgba(245,237,224,0.42)" />
+                <path d="M 288 172 Q 288 144 314 144 Q 340 144 340 172 Z" fill="rgba(245,237,224,0.5)" stroke="rgba(217,177,95,0.55)" strokeWidth="0.6" />
+                <line x1="314" y1="144" x2="314" y2="124" stroke="rgba(217,177,95,0.7)" strokeWidth="1.4" />
+                <circle cx="314" cy="121" r="2" fill="rgba(217,177,95,0.95)" />
+                <rect x="307" y="190" width="14" height="22" fill="rgba(250,199,117,0.32)" />
+              </g>
+
+              {/* Central palace block */}
+              <rect x="130" y="148" width="140" height="92" fill="rgba(245,237,224,0.55)" />
+
+              {/* Central onion dome */}
+              <path
+                d="M 138 148 Q 138 88 200 88 Q 262 88 262 148 Z"
+                fill="rgba(245,237,224,0.68)"
+                stroke="rgba(217,177,95,0.7)"
+                strokeWidth="0.8"
+              />
+              {/* Dome ribs */}
+              <path d="M 200 88 Q 175 110 175 148" fill="none" stroke="rgba(217,177,95,0.4)" strokeWidth="0.5" />
+              <path d="M 200 88 Q 225 110 225 148" fill="none" stroke="rgba(217,177,95,0.4)" strokeWidth="0.5" />
+
+              {/* Central spire */}
+              <line x1="200" y1="88" x2="200" y2="58" stroke="rgba(217,177,95,0.85)" strokeWidth="1.8" />
+              <circle cx="200" cy="55" r="3" fill="rgba(217,177,95,0.95)" />
+              <line x1="195" y1="62" x2="205" y2="62" stroke="rgba(217,177,95,0.7)" strokeWidth="0.8" />
+
+              {/* Decorative arched windows */}
+              <path d="M 152 192 Q 152 178 162 178 Q 172 178 172 192 L 172 210 L 152 210 Z" fill="rgba(250,199,117,0.32)" stroke="rgba(217,177,95,0.45)" strokeWidth="0.5" />
+              <path d="M 228 192 Q 228 178 238 178 Q 248 178 248 192 L 248 210 L 228 210 Z" fill="rgba(250,199,117,0.32)" stroke="rgba(217,177,95,0.45)" strokeWidth="0.5" />
+
+              {/* Central archway entrance */}
+              <path
+                d="M 178 240 L 178 200 Q 178 172 200 172 Q 222 172 222 200 L 222 240 Z"
+                fill="rgba(250,199,117,0.42)"
+                stroke="rgba(217,177,95,0.65)"
+                strokeWidth="0.8"
+              />
+              {/* Glow inside arch */}
+              <ellipse cx="200" cy="216" rx="16" ry="22" fill="rgba(250,199,117,0.55)" />
+              <ellipse cx="200" cy="216" rx="22" ry="28" fill="rgba(250,199,117,0.18)" />
+
+              {/* Hanging diya lanterns flanking arch */}
+              <g>
+                <line x1="170" y1="172" x2="170" y2="200" stroke="rgba(217,177,95,0.45)" strokeWidth="0.5" />
+                <circle cx="170" cy="202" r="2.2" fill="rgba(250,199,117,0.95)" />
+                <circle cx="170" cy="202" r="5" fill="rgba(250,199,117,0.25)" />
+              </g>
+              <g>
+                <line x1="230" y1="172" x2="230" y2="200" stroke="rgba(217,177,95,0.45)" strokeWidth="0.5" />
+                <circle cx="230" cy="202" r="2.2" fill="rgba(250,199,117,0.95)" />
+                <circle cx="230" cy="202" r="5" fill="rgba(250,199,117,0.25)" />
+              </g>
+
+              {/* Steps */}
+              <rect x="158" y="240" width="84" height="6" fill="rgba(245,237,224,0.4)" />
+              <rect x="140" y="246" width="120" height="6" fill="rgba(245,237,224,0.32)" />
+              <rect x="118" y="252" width="164" height="8" fill="rgba(245,237,224,0.24)" />
+
+              {/* Foreground floral border */}
+              {[20, 50, 80, 110, 140, 170, 200, 230, 260, 290, 320, 350, 380].map((x, i) => (
+                <circle
+                  key={`f-${i}`}
+                  cx={x}
+                  cy={272 + (i % 2) * 4}
+                  r="1.6"
+                  fill={i % 3 === 0 ? 'rgba(212,83,126,0.55)' : 'rgba(250,199,117,0.55)'}
+                />
+              ))}
             </svg>
-            <div className="absolute top-3 right-3 px-2 py-0.5 rounded text-[9px] tracking-[0.2em] text-cream/50 border border-cream/20 bg-cream/[0.03]">
-              PHOTO PLACEHOLDER
-            </div>
           </div>
         )}
         {/* Vignette */}
