@@ -72,14 +72,14 @@ export const day1 = {
     },
     {
       time: '11:00 AM',
-      name: 'Varapooje',
+      name: 'Varapooja',
       dressCode: 'Traditional attire',
       blurb: 'The quiet ceremonial hour — please be on time, the priests are not negotiating.',
       venue: 'Maratha Mandir',
     },
     {
       time: '6:00 PM',
-      name: 'Baraat & Sangeet',
+      name: 'Barat & Sangeet',
       dressCode: 'Lehenga / Indo-western',
       blurb: 'Bring rhythm, leave inhibitions. The dance floor opens whether you are ready or not.',
       venue: 'Maratha Mandir',
