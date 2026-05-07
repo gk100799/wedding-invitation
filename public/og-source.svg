@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#1a0a2e"/>
+      <stop offset="100%" stop-color="#0a0708"/>
+    </radialGradient>
+    <radialGradient id="rosePulse" cx="50%" cy="40%" r="45%">
+      <stop offset="0%" stop-color="#d4537e" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#d4537e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#d9b15f" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#d9b15f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#rosePulse)"/>
+  <rect width="1200" height="630" fill="url(#goldGlow)"/>
+
+  <!-- Twinkling stars -->
+  <g fill="#f5ede0" opacity="0.55">
+    <circle cx="120" cy="80" r="1.5"/>
+    <circle cx="220" cy="140" r="1"/>
+    <circle cx="980" cy="100" r="1.5"/>
+    <circle cx="1080" cy="180" r="1"/>
+    <circle cx="80" cy="430" r="1"/>
+    <circle cx="1100" cy="500" r="1.5"/>
+    <circle cx="160" cy="540" r="1"/>
+    <circle cx="1020" cy="430" r="1"/>
+  </g>
+  <g fill="#d9b15f" opacity="0.85">
+    <circle cx="180" cy="220" r="2"/>
+    <circle cx="940" cy="250" r="2"/>
+    <circle cx="100" cy="320" r="1.5"/>
+    <circle cx="1080" cy="350" r="1.5"/>
+  </g>
+
+  <!-- Top divider lines + label -->
+  <line x1="430" y1="140" x2="540" y2="140" stroke="#d9b15f" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="600" y="148" font-family="'Mulish','Helvetica Neue',sans-serif" font-size="20" letter-spacing="9"
+        text-anchor="middle" fill="#d9b15f" font-weight="700">SAVE THE DATE</text>
+  <line x1="660" y1="140" x2="770" y2="140" stroke="#d9b15f" stroke-width="1" stroke-opacity="0.6"/>
+
+  <!-- Names -->
+  <text x="600" y="290" font-family="'Fraunces','Times New Roman',serif" font-style="italic" font-size="92"
+        text-anchor="middle" fill="#d9b15f" font-weight="500">Gopal Krishna</text>
+  <text x="600" y="350" font-family="'Fraunces','Times New Roman',serif" font-style="italic" font-size="44"
+        text-anchor="middle" fill="#f5ede0" opacity="0.92">&amp;</text>
+  <text x="600" y="430" font-family="'Fraunces','Times New Roman',serif" font-style="italic" font-size="92"
+        text-anchor="middle" fill="#d9b15f" font-weight="500">Madhushri</text>
+
+  <!-- Date + city -->
+  <text x="600" y="510" font-family="'Mulish','Helvetica Neue',sans-serif" font-size="22" letter-spacing="8"
+        text-anchor="middle" fill="#f5ede0" opacity="0.85" font-weight="500">8 JULY 2026 · BELAGAVI</text>
+
+  <!-- Hashtag bottom -->
+  <text x="600" y="580" font-family="'Mulish','Helvetica Neue',sans-serif" font-size="14" letter-spacing="6"
+        text-anchor="middle" fill="#f5ede0" opacity="0.45">#KRISHNAKAMADHU</text>
+</svg>
