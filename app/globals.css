@@ -26,7 +26,10 @@ html, body {
 }
 
 html {
-  scroll-snap-type: y mandatory;
+  /* proximity (not mandatory) so reaching the bottom of a tall section
+     doesn't snap back to its top — the user keeps their position until
+     they're close enough to the next section to trigger a snap. */
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
