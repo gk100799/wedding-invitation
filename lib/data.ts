@@ -24,7 +24,7 @@ export const wedding = {
   dateRange: '7 & 8 July 2026',
   city: 'Belagavi',
   venue: 'Maratha Mandir Marriage Hall',
-  hashtag: '#KrishnaKaMadhu',
+  hashtag: '#KrishnaKiMadhu',
   // Optional: drop a venue photo at /public/images/venue.jpg, then set this to '/images/venue.jpg'.
   // While null, a styled placeholder card renders instead.
   venuePhoto: '/images/mantap.jpg' as string | null,
