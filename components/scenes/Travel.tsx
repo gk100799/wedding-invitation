@@ -223,12 +223,7 @@ export default function Travel() {
                   12:30 PM onwards
                 </p>
                 <div className="w-px self-stretch bg-gold/25 shrink-0" />
-                <div>
-                  <p className="text-cream/90 text-sm">Reception &amp; Lunch</p>
-                  <p className="text-cream/45 text-[11px] mt-0.5">
-                    Suits (men) · Saree, Anarkali, or Indo-western (women)
-                  </p>
-                </div>
+                <p className="text-cream/90 text-sm">Reception &amp; Lunch</p>
               </div>
             </motion.div>
           )}
