@@ -12,6 +12,7 @@ import Travel from '@/components/scenes/Travel';
 import Day1 from '@/components/scenes/Day1';
 import Day2 from '@/components/scenes/Day2';
 import RSVP from '@/components/scenes/RSVP';
+import PeacockWatermark from '@/components/PeacockWatermark';
 
 const scenes = [
   { key: 'open', Component: ColdOpen },
@@ -26,6 +27,7 @@ const scenes = [
 export default function Home() {
   return (
     <main className="h-[100svh] w-full overflow-hidden">
+      <PeacockWatermark />
       <Swiper
         direction="vertical"
         slidesPerView={1}

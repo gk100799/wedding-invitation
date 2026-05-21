@@ -27,7 +27,7 @@ export const wedding = {
   hashtag: '#KrishnaKiMadhu',
   // Optional: drop a venue photo at /public/images/venue.jpg, then set this to '/images/venue.jpg'.
   // While null, a styled placeholder card renders instead.
-  venuePhoto: '/images/mantap.jpg' as string | null,
+  venuePhoto: '/images/mantap-illustration.svg' as string | null,
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=Maratha+Mandir+Marriage+Hall+Belagavi',
 };

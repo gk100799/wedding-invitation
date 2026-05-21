@@ -46,19 +46,29 @@ html, body {
   overflow: hidden;
 }
 
-/* Swiper pagination styling — match the cinematic theme. */
+/* Swiper pagination — every dot is a mor-pankh "eye". Krishna everywhere. */
 .wedding-swiper .swiper-pagination-bullet {
-  background: rgba(245, 237, 224, 0.35);
-  opacity: 1;
-  width: 6px;
-  height: 6px;
-  transition: all 0.3s ease;
+  /* Dim peacock-eye: muted teal core with a hint of gold. */
+  background:
+    radial-gradient(circle, #d9b15f 0%, #993556 35%, #13455a 70%, #2b6e8a 100%);
+  opacity: 0.45;
+  width: 7px;
+  height: 7px;
+  transition: all 0.35s ease;
+}
+.wedding-swiper .swiper-pagination-bullet:hover {
+  opacity: 0.75;
 }
 .wedding-swiper .swiper-pagination-bullet-active {
-  background: #d9b15f;
-  width: 8px;
-  height: 8px;
-  box-shadow: 0 0 10px rgba(217, 177, 95, 0.85);
+  /* Active: brighter, larger eye with a champagne pupil and dual-glow halo. */
+  background:
+    radial-gradient(circle, #f3e1bb 0%, #d9b15f 28%, #993556 55%, #13455a 75%, #2b6e8a 100%);
+  opacity: 1;
+  width: 11px;
+  height: 11px;
+  box-shadow:
+    0 0 7px rgba(217, 177, 95, 0.9),
+    0 0 14px rgba(43, 110, 138, 0.55);
 }
 
 /* Reduced motion respect */

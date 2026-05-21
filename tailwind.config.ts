@@ -17,6 +17,9 @@ const config: Config = {
         midnight: '#1a0a2e',
         gold: '#d9b15f',
         champagne: '#f3e1bb',
+        // Mor-pankh — the iridescent teal-blue of a peacock feather's eye.
+        morpankh: '#2b6e8a',
+        morpankhDeep: '#13455a',
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],

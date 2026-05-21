@@ -3,11 +3,23 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { wedding } from '@/lib/data';
+import PeacockFeather from '@/components/PeacockFeather';
 
 type Star = { x: number; y: number; d: number; s: number; gold: boolean };
+type Feather = {
+  x: number;
+  // negative delay starts the loop mid-animation so feathers are
+  // present from the first frame instead of dribbling in from the top.
+  delay: number;
+  duration: number;
+  scale: number;
+  drift: number;
+  rotate: number;
+};
 
 export default function ColdOpen() {
   const [stars, setStars] = useState<Star[]>([]);
+  const [feathers, setFeathers] = useState<Feather[]>([]);
 
   useEffect(() => {
     const isMobile = window.innerWidth < 640;
@@ -20,6 +32,23 @@ export default function ColdOpen() {
       gold: Math.random() < 0.18,
     }));
     setStars(arr);
+
+    const featherCount = isMobile ? 4 : 6;
+    const featherArr: Feather[] = Array.from({ length: featherCount }).map((_, i) => {
+      const duration = 18 + Math.random() * 12;
+      // Stagger by an even fraction of duration so the column is full
+      // immediately — first feathers near the top, later ones near the bottom.
+      const negDelay = -(i / featherCount) * duration;
+      return {
+        x: (i / featherCount) * 100 + Math.random() * (100 / featherCount) * 0.6,
+        delay: negDelay,
+        duration,
+        scale: 0.9 + Math.random() * 1.0,
+        drift: (Math.random() - 0.5) * 80,
+        rotate: (Math.random() - 0.5) * 30,
+      };
+    });
+    setFeathers(featherArr);
   }, []);
 
   const words = ["you're", 'invited.'];
@@ -45,6 +74,32 @@ export default function ColdOpen() {
         animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
       />
+
+      {/* Drifting peacock feathers — Krishna's presence, immediate and unmistakable. */}
+      {feathers.map((f, i) => (
+        <motion.div
+          key={`f-${i}`}
+          className="absolute pointer-events-none"
+          style={{ left: `${f.x}%`, top: '-15%' }}
+          animate={{
+            top: ['-15%', '115%'],
+            x: [0, f.drift, -f.drift * 0.6, f.drift * 0.4, 0],
+            rotate: [f.rotate - 8, f.rotate + 12, f.rotate - 6, f.rotate + 10],
+            opacity: [0.08, 0.7, 0.7, 0.45, 0.08],
+          }}
+          transition={{
+            duration: f.duration,
+            delay: f.delay,
+            repeat: Infinity,
+            ease: 'linear',
+            times: [0, 0.15, 0.6, 0.9, 1],
+          }}
+        >
+          <div style={{ transform: `scale(${f.scale})` }}>
+            <PeacockFeather size={32} />
+          </div>
+        </motion.div>
+      ))}
 
       {/* Twinkling stars (some gold) */}
       {stars.map((s, i) => (
@@ -137,20 +192,52 @@ export default function ColdOpen() {
         className="relative z-10 mt-7 flex items-center gap-3 sm:gap-4"
       >
         <motion.span
-          className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-gold"
-          initial={{ scaleX: 0, transformOrigin: 'right' }}
-          animate={{ scaleX: 1 }}
+          initial={{ scaleX: 0, transformOrigin: 'right', opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 3.0, duration: 0.8 }}
-        />
+          aria-hidden
+        >
+          {/* Bansuri — left half, mouthpiece end facing centre. */}
+          <svg width="56" height="10" viewBox="0 0 56 10" fill="none" className="sm:w-[72px]">
+            <defs>
+              <linearGradient id="bansuriL" x1="0" x2="1">
+                <stop offset="0%" stopColor="#d9b15f" stopOpacity="0" />
+                <stop offset="60%" stopColor="#d9b15f" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#f3e1bb" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            <rect x="2" y="3.5" width="50" height="3" rx="1.5" fill="url(#bansuriL)" />
+            <circle cx="52" cy="5" r="1.6" fill="#13455a" opacity="0.85" />
+            <circle cx="44" cy="5" r="0.9" fill="#0a0708" opacity="0.7" />
+            <circle cx="38" cy="5" r="0.9" fill="#0a0708" opacity="0.55" />
+            <circle cx="32" cy="5" r="0.9" fill="#0a0708" opacity="0.4" />
+          </svg>
+        </motion.span>
         <p className="text-[13px] sm:text-sm tracking-[0.35em] text-gold uppercase font-body font-semibold drop-shadow-[0_0_10px_rgba(217,177,95,0.55)]">
           {wedding.city} · {wedding.date}
         </p>
         <motion.span
-          className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent to-gold"
-          initial={{ scaleX: 0, transformOrigin: 'left' }}
-          animate={{ scaleX: 1 }}
+          initial={{ scaleX: 0, transformOrigin: 'left', opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 3.0, duration: 0.8 }}
-        />
+          aria-hidden
+        >
+          {/* Bansuri — right half, mirrored. */}
+          <svg width="56" height="10" viewBox="0 0 56 10" fill="none" className="sm:w-[72px]">
+            <defs>
+              <linearGradient id="bansuriR" x1="1" x2="0">
+                <stop offset="0%" stopColor="#d9b15f" stopOpacity="0" />
+                <stop offset="60%" stopColor="#d9b15f" stopOpacity="0.9" />
+                <stop offset="100%" stopColor="#f3e1bb" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            <rect x="4" y="3.5" width="50" height="3" rx="1.5" fill="url(#bansuriR)" />
+            <circle cx="4" cy="5" r="1.6" fill="#13455a" opacity="0.85" />
+            <circle cx="12" cy="5" r="0.9" fill="#0a0708" opacity="0.7" />
+            <circle cx="18" cy="5" r="0.9" fill="#0a0708" opacity="0.55" />
+            <circle cx="24" cy="5" r="0.9" fill="#0a0708" opacity="0.4" />
+          </svg>
+        </motion.span>
       </motion.div>
 
       {/* Wedding hashtag */}
