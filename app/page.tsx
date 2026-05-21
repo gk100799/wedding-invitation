@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Keyboard, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -14,7 +15,7 @@ import Day2 from '@/components/scenes/Day2';
 import RSVP from '@/components/scenes/RSVP';
 import PeacockWatermark from '@/components/PeacockWatermark';
 
-const scenes = [
+const allScenes = [
   { key: 'open', Component: ColdOpen },
   { key: 'match', Component: MatchScene },
   { key: 'story', Component: StoryGallery },
@@ -25,6 +26,15 @@ const scenes = [
 ];
 
 export default function Home() {
+  const [scenes, setScenes] = useState(allScenes);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('madhu1')) {
+      setScenes(allScenes.filter(s => s.key !== 'day1' && s.key !== 'day2'));
+    }
+  }, []);
+
   return (
     <main className="h-[100svh] w-full overflow-hidden">
       <PeacockWatermark />

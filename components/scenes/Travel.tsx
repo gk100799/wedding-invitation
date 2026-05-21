@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { travel, wedding, basePath } from '@/lib/data';
+import { travel, wedding, basePath, day2 } from '@/lib/data';
 
 type Leg = typeof travel.outbound | typeof travel.return;
 
@@ -137,10 +137,12 @@ function VenueShowcase() {
 export default function Travel() {
   const ref = useRef<HTMLDivElement>(null);
   const [showTrain, setShowTrain] = useState(false);
+  const [isMadhu1, setIsMadhu1] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setShowTrain(params.has('travel'));
+    setIsMadhu1(params.has('madhu1'));
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -203,7 +205,43 @@ export default function Travel() {
           </a>
         </>
       ) : (
-        <VenueShowcase />
+        <>
+          <VenueShowcase />
+          {isMadhu1 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-6 w-full max-w-md mx-auto"
+            >
+              <p className="text-[10px] tracking-[0.3em] text-cream/50 text-center mb-4">
+                {day2.date.toUpperCase()}
+              </p>
+              <div className="flex flex-col gap-2">
+                {day2.events
+                  .filter(e => e.name === 'Reception' || e.name === 'Lunch')
+                  .map((event) => (
+                    <div
+                      key={event.name}
+                      className="flex items-start gap-4 px-4 py-3 rounded-xl bg-cream/[0.04] border border-cream/10"
+                    >
+                      <p className="font-display italic text-cream text-sm leading-tight min-w-[90px]">
+                        {event.time}
+                      </p>
+                      <div className="w-px self-stretch bg-gold/25 shrink-0" />
+                      <div>
+                        <p className="text-cream/90 text-sm">{event.name}</p>
+                        {event.dressCode !== '—' && (
+                          <p className="text-cream/45 text-[11px] mt-0.5">{event.dressCode}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </motion.div>
+          )}
+        </>
       )}
     </section>
   );

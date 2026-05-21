@@ -9,7 +9,7 @@ export default function MatchScene() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.has('madhu')) setIsMadhu(true);
+    if (params.has('madhu') || params.has('madhu1')) setIsMadhu(true);
   }, []);
 
   const first = isMadhu ? couple.bride : couple.groom;

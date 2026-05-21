@@ -15,7 +15,7 @@ export default function RSVP() {
     const params = new URLSearchParams(window.location.search);
     setShowTravelNote(params.has('travel'));
     // ?madhu routes replies to Madhushri's WhatsApp and flips name order.
-    if (params.has('madhu')) {
+    if (params.has('madhu') || params.has('madhu1')) {
       setPhone('919480315178');
       setIsMadhu(true);
     }
