@@ -26,14 +26,18 @@ const allScenes = [
 ];
 
 export default function Home() {
-  const [scenes, setScenes] = useState(allScenes);
+  const [scenes, setScenes] = useState<typeof allScenes | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.has('madhu1')) {
-      setScenes(allScenes.filter(s => s.key !== 'day1' && s.key !== 'day2'));
-    }
+    setScenes(
+      params.has('madhu1')
+        ? allScenes.filter(s => s.key !== 'day1' && s.key !== 'day2')
+        : allScenes,
+    );
   }, []);
+
+  if (!scenes) return null;
 
   return (
     <main className="h-[100svh] w-full overflow-hidden">

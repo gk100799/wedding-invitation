@@ -154,7 +154,8 @@ export default function Travel() {
   return (
     <section
       ref={ref}
-      className="scene relative bg-[#050a18] text-cream flex flex-col items-center justify-center px-4 py-14 sm:py-20"
+      className={`scene relative bg-[#050a18] text-cream flex flex-col items-center px-4 ${isMadhu1 ? 'justify-start py-12' : 'justify-center py-14 sm:py-20'}`}
+      style={isMadhu1 ? { overflowY: 'auto' } : undefined}
     >
       <div className="max-w-md text-center mb-6 sm:mb-10">
         <p className="text-[10px] tracking-[0.3em] text-cream/50 mb-3">
@@ -210,34 +211,24 @@ export default function Travel() {
           {isMadhu1 && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-6 w-full max-w-md mx-auto"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-6 w-full max-w-md mx-auto pb-10"
             >
               <p className="text-[10px] tracking-[0.3em] text-cream/50 text-center mb-4">
                 {day2.date.toUpperCase()}
               </p>
-              <div className="flex flex-col gap-2">
-                {day2.events
-                  .filter(e => e.name === 'Reception' || e.name === 'Lunch')
-                  .map((event) => (
-                    <div
-                      key={event.name}
-                      className="flex items-start gap-4 px-4 py-3 rounded-xl bg-cream/[0.04] border border-cream/10"
-                    >
-                      <p className="font-display italic text-cream text-sm leading-tight min-w-[90px]">
-                        {event.time}
-                      </p>
-                      <div className="w-px self-stretch bg-gold/25 shrink-0" />
-                      <div>
-                        <p className="text-cream/90 text-sm">{event.name}</p>
-                        {event.dressCode !== '—' && (
-                          <p className="text-cream/45 text-[11px] mt-0.5">{event.dressCode}</p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
+              <div className="flex items-start gap-4 px-4 py-3 rounded-xl bg-cream/[0.04] border border-cream/10">
+                <p className="font-display italic text-cream text-sm leading-tight min-w-[90px]">
+                  12:30 PM onwards
+                </p>
+                <div className="w-px self-stretch bg-gold/25 shrink-0" />
+                <div>
+                  <p className="text-cream/90 text-sm">Reception &amp; Lunch</p>
+                  <p className="text-cream/45 text-[11px] mt-0.5">
+                    Suits (men) · Saree, Anarkali, or Indo-western (women)
+                  </p>
+                </div>
               </div>
             </motion.div>
           )}
