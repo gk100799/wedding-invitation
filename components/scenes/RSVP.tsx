@@ -8,19 +8,26 @@ export default function RSVP() {
   const [submitted, setSubmitted] = useState(false);
   const [attendance, setAttendance] = useState<'yes' | 'no' | ''>('');
   const [showTravelNote, setShowTravelNote] = useState(false);
+  const [phone, setPhone] = useState('917406058845');
+  const [isMadhu, setIsMadhu] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setShowTravelNote(params.has('travel'));
+    // ?madhu routes replies to Madhushri's WhatsApp and flips name order.
+    if (params.has('madhu')) {
+      setPhone('919480315178');
+      setIsMadhu(true);
+    }
   }, []);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const phone = '917406058845';
+    const greeting = isMadhu ? 'Hey Madhushri & Gopal!' : 'Hey Gopal & Madhushri!';
     const message =
       attendance === 'yes'
-        ? "Hey Gopal & Madhushri! Count me in for the wedding 🎉"
-        : "Hey Gopal & Madhushri! Tragically busy on those dates, but sending love 💌";
+        ? `${greeting} Count me in for the wedding 🎉`
+        : `${greeting} Tragically busy on those dates, but sending love 💌`;
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
@@ -65,7 +72,7 @@ export default function RSVP() {
         className="max-w-md w-full text-center relative z-10"
       >
         <p className="text-[10px] tracking-[0.4em] text-cream/40 mb-4">
-          {couple.groom.name.toUpperCase()} · WEDS · {couple.bride.name.toUpperCase()}
+          {isMadhu ? couple.bride.name.toUpperCase() : couple.groom.name.toUpperCase()} · WEDS · {isMadhu ? couple.groom.name.toUpperCase() : couple.bride.name.toUpperCase()}
         </p>
         <h2
           className="font-display italic text-[clamp(2.2rem,9vw,3.6rem)] leading-[1] mb-3 bg-clip-text text-transparent"
