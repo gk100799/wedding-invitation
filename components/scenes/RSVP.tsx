@@ -10,6 +10,7 @@ export default function RSVP() {
   const [showTravelNote, setShowTravelNote] = useState(false);
   const [phone, setPhone] = useState('917406058845');
   const [isMadhu, setIsMadhu] = useState(false);
+  const [isMadhu1, setIsMadhu1] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -19,6 +20,7 @@ export default function RSVP() {
       setPhone('919480315178');
       setIsMadhu(true);
     }
+    if (params.has('madhu1')) setIsMadhu1(true);
   }, []);
 
   function handleSubmit(e: React.FormEvent) {
@@ -84,7 +86,7 @@ export default function RSVP() {
           see you in<br />{wedding.city}.
         </h2>
         <p className="text-cream/60 text-sm mb-8">
-          {wedding.dateRange}
+          {isMadhu1 ? wedding.date : wedding.dateRange}
         </p>
 
         {showTravelNote && (
