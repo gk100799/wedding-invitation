@@ -207,26 +207,22 @@ export default function Travel() {
         </>
       ) : (
         <>
-          <VenueShowcase />
           {isMadhu1 && (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mt-6 w-full max-w-md mx-auto pb-10"
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full max-w-md mx-auto mb-6 rounded-2xl border border-gold/30 bg-gradient-to-br from-gold/[0.08] to-rose/[0.05] px-6 py-5 text-center"
+              style={{ boxShadow: '0 0 32px rgba(217,177,95,0.08)' }}
             >
-              <p className="text-[10px] tracking-[0.3em] text-cream/50 text-center mb-4">
-                {day2.date.toUpperCase()}
+              <p className="text-[10px] tracking-[0.35em] text-gold/70 mb-2">{day2.date.toUpperCase()}</p>
+              <p className="font-display italic text-[clamp(1.6rem,7vw,2.2rem)] leading-tight text-cream">
+                Reception &amp; Lunch
               </p>
-              <div className="flex items-start gap-4 px-4 py-3 rounded-xl bg-cream/[0.04] border border-cream/10">
-                <p className="font-display italic text-cream text-sm leading-tight min-w-[90px]">
-                  12:30 PM onwards
-                </p>
-                <div className="w-px self-stretch bg-gold/25 shrink-0" />
-                <p className="text-cream/90 text-sm">Reception &amp; Lunch</p>
-              </div>
+              <p className="text-cream/50 text-sm mt-1.5 tracking-wide">12:30 PM onwards</p>
             </motion.div>
           )}
+          <VenueShowcase />
         </>
       )}
     </section>
