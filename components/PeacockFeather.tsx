@@ -20,7 +20,7 @@ export default function PeacockFeather({ size = 80 }: { size?: number }) {
         // Rotate so the feather hangs tip-up, eye near the top — natural falling posture.
         transform: 'rotate(-42deg)',
         // Boost the iridescent blues and greens; brighten slightly so it reads on dark bg.
-        filter: 'saturate(2.2) brightness(1.25) drop-shadow(0 0 6px rgba(55,73,146,0.5))',
+        filter: 'saturate(1.4) brightness(1.2) drop-shadow(0 0 6px rgba(30,58,138,0.55))',
       }}
     />
   );
