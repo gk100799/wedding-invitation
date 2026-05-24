@@ -196,6 +196,7 @@ export default function ColdOpen() {
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 3.0, duration: 0.8 }}
           aria-hidden
+          className="hidden sm:inline-block"
         >
           {/* Bansuri — left half, mouthpiece end facing centre. */}
           <svg width="56" height="10" viewBox="0 0 56 10" fill="none" className="sm:w-[72px]">
@@ -213,7 +214,7 @@ export default function ColdOpen() {
             <circle cx="32" cy="5" r="0.9" fill="#0a0708" opacity="0.4" />
           </svg>
         </motion.span>
-        <p className="text-[13px] sm:text-sm tracking-[0.35em] text-gold uppercase font-body font-semibold drop-shadow-[0_0_10px_rgba(217,177,95,0.55)]">
+        <p className="text-[13px] sm:text-sm tracking-[0.22em] sm:tracking-[0.35em] text-gold uppercase font-body font-semibold drop-shadow-[0_0_10px_rgba(217,177,95,0.55)] whitespace-nowrap">
           {wedding.city} · {wedding.date}
         </p>
         <motion.span
@@ -221,6 +222,7 @@ export default function ColdOpen() {
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ delay: 3.0, duration: 0.8 }}
           aria-hidden
+          className="hidden sm:inline-block"
         >
           {/* Bansuri — right half, mirrored. */}
           <svg width="56" height="10" viewBox="0 0 56 10" fill="none" className="sm:w-[72px]">
