@@ -96,7 +96,7 @@ export default function ColdOpen() {
           }}
         >
           <div style={{ transform: `scale(${f.scale})` }}>
-            <PeacockFeather size={32} />
+            <PeacockFeather size={90} />
           </div>
         </motion.div>
       ))}

@@ -20,7 +20,7 @@ export default function PeacockWatermark() {
         rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut' },
       }}
     >
-      <PeacockFeather size={22} />
+      <PeacockFeather size={44} />
     </motion.div>
   );
 }
