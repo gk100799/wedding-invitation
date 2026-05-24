@@ -43,7 +43,7 @@ export default function ColdOpen() {
         x: (i / featherCount) * 100 + Math.random() * (100 / featherCount) * 0.6,
         delay: negDelay,
         duration,
-        scale: 0.9 + Math.random() * 1.0,
+        scale: 0.75 + Math.random() * 0.45,
         drift: (Math.random() - 0.5) * 80,
         rotate: (Math.random() - 0.5) * 30,
       };
