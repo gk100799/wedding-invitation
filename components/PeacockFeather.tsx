@@ -14,7 +14,14 @@ export default function PeacockFeather({ size = 80 }: { size?: number }) {
       aria-hidden="true"
       width={size}
       height={size}
-      style={{ objectFit: 'contain', display: 'block' }}
+      style={{
+        objectFit: 'contain',
+        display: 'block',
+        // Rotate so the feather hangs tip-up, eye near the top — natural falling posture.
+        transform: 'rotate(-42deg)',
+        // Boost the iridescent blues and greens; brighten slightly so it reads on dark bg.
+        filter: 'saturate(2.2) brightness(1.25) drop-shadow(0 0 6px rgba(55,73,146,0.5))',
+      }}
     />
   );
 }
