@@ -16,7 +16,7 @@ export default function StoryGallery() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setItems(
-      params.has('madhu1')
+      (params.has('madhu') || params.has('madhu1'))
         ? story.filter(item => item.caption !== 'the engagement')
         : story,
     );
