@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Swiper as PhotoSwiper, SwiperSlide as PhotoSlide } from 'swiper/react';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
@@ -11,6 +11,16 @@ import { story, basePath } from '@/lib/data';
 
 export default function StoryGallery() {
   const ref = useRef<HTMLDivElement>(null);
+  const [items, setItems] = useState(story);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setItems(
+      params.has('madhu1')
+        ? story.filter(item => item.caption !== 'the engagement')
+        : story,
+    );
+  }, []);
 
   return (
     <section ref={ref} className="scene bg-[#14100c] text-cream flex flex-col pt-12 sm:pt-16 pb-10 sm:pb-14">
@@ -50,7 +60,7 @@ export default function StoryGallery() {
         className="story-swiper flex-1 min-h-0 w-full mt-4 sm:mt-6"
         slidesPerView={1}
       >
-        {story.map((item, i) => (
+        {items.map((item, i) => (
           <PhotoSlide key={i} className="!flex items-center justify-center px-6">
             <Polaroid item={item} index={i} />
           </PhotoSlide>
