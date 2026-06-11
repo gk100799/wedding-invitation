@@ -64,17 +64,17 @@ export const day1 = {
   mood: 'a slow yellow morning',
   events: [
     {
-      time: '8:30 AM',
-      name: 'Haldi',
-      dressCode: 'Yellow — florals encouraged',
-      blurb: 'Flowers, garlands, soft yellow petals. The Pinterest version of haldi — no turmeric chaos, just photos worth keeping.',
-      venue: 'Maratha Mandir',
-    },
-    {
       time: '11:00 AM',
       name: 'Varapooja',
       dressCode: 'Traditional attire',
       blurb: 'The quiet ceremonial hour — please be on time, the priests are not negotiating.',
+      venue: 'Maratha Mandir',
+    },
+    {
+      time: '3:00 PM',
+      name: 'Haldi',
+      dressCode: 'Yellow — florals encouraged',
+      blurb: 'Flowers, garlands, soft yellow petals. The Pinterest version of haldi — no turmeric chaos, just photos worth keeping.',
       venue: 'Maratha Mandir',
     },
     {
