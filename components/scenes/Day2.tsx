@@ -10,8 +10,12 @@ type Petal = { x: number; delay: number; duration: number; size: number; sway: n
 export default function Day2() {
   const [diyas, setDiyas] = useState<Diya[]>([]);
   const [petals, setPetals] = useState<Petal[]>([]);
+  const [isMadhu, setIsMadhu] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setIsMadhu(params.has('madhu'));
+
     const isMobile = window.innerWidth < 640;
     const diyaCount = isMobile ? 18 : 30;
     setDiyas(
@@ -178,7 +182,7 @@ export default function Day2() {
                 </p>
               </div>
               <p className="text-ink/70 text-[11px] sm:text-xs leading-snug">{event.blurb}</p>
-              {event.dressCode !== '—' && (
+              {!isMadhu && event.dressCode !== '—' && (
                 <p className="text-deepRose/80 text-[10px] italic mt-1">{event.dressCode}</p>
               )}
             </motion.div>

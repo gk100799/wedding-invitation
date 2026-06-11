@@ -10,8 +10,12 @@ type Sparkle = { x: number; y: number; delay: number; size: number };
 export default function Day1() {
   const [petals, setPetals] = useState<Petal[]>([]);
   const [sparkles, setSparkles] = useState<Sparkle[]>([]);
+  const [isMadhu, setIsMadhu] = useState(false);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setIsMadhu(params.has('madhu'));
+
     const isMobile = window.innerWidth < 640;
     setPetals(
       Array.from({ length: isMobile ? 10 : 16 }).map(() => ({
@@ -173,7 +177,7 @@ export default function Day1() {
                 </p>
               </div>
               <p className="text-ink/65 text-[11px] sm:text-xs leading-snug">{event.blurb}</p>
-              {event.dressCode !== '—' && (
+              {!isMadhu && event.dressCode !== '—' && (
                 <p className="text-[#8a4d63]/75 text-[10px] italic mt-1">{event.dressCode}</p>
               )}
             </motion.div>
