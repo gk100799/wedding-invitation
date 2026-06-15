@@ -61,7 +61,7 @@ export const story = [
 export const day1 = {
   date: '7 July 2026',
   label: 'Day 1',
-  mood: 'a slow yellow morning',
+  mood: 'a slow morning in bloom',
   events: [
     {
       time: '11:00 AM',

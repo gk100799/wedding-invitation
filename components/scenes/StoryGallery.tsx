@@ -17,7 +17,11 @@ export default function StoryGallery() {
     const params = new URLSearchParams(window.location.search);
     setItems(
       (params.has('madhu') || params.has('madhu1'))
-        ? story.filter(item => item.caption !== 'the engagement')
+        ? story.map(item =>
+            item.caption === 'the engagement'
+              ? { ...item, src: '/images/engagement-madhu.jpeg' }
+              : item,
+          )
         : story,
     );
   }, []);
