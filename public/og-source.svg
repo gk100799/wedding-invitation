@@ -37,18 +37,18 @@
   </g>
 
   <!-- Top divider lines + label -->
-  <line x1="430" y1="140" x2="540" y2="140" stroke="#d9b15f" stroke-width="1" stroke-opacity="0.6"/>
-  <text x="600" y="148" font-family="'Mulish','Helvetica Neue',sans-serif" font-size="20" letter-spacing="9"
+    <line x1="300" y1="141" x2="430" y2="141" stroke="#d9b15f" stroke-width="1" stroke-opacity="0.6"/>
+    <text x="600" y="148" font-family="'Mulish','Helvetica Neue',sans-serif" font-size="20" letter-spacing="9"
         text-anchor="middle" fill="#d9b15f" font-weight="700">SAVE THE DATE</text>
-  <line x1="660" y1="140" x2="770" y2="140" stroke="#d9b15f" stroke-width="1" stroke-opacity="0.6"/>
+    <line x1="770" y1="141" x2="900" y2="141" stroke="#d9b15f" stroke-width="1" stroke-opacity="0.6"/>
 
   <!-- Names -->
   <text x="600" y="290" font-family="'Fraunces','Times New Roman',serif" font-style="italic" font-size="92"
-        text-anchor="middle" fill="#d9b15f" font-weight="500">Gopal Krishna</text>
+      text-anchor="middle" fill="#d9b15f" font-weight="500">Madhushri</text>
   <text x="600" y="350" font-family="'Fraunces','Times New Roman',serif" font-style="italic" font-size="44"
         text-anchor="middle" fill="#f5ede0" opacity="0.92">&amp;</text>
   <text x="600" y="430" font-family="'Fraunces','Times New Roman',serif" font-style="italic" font-size="92"
-        text-anchor="middle" fill="#d9b15f" font-weight="500">Madhushri</text>
+      text-anchor="middle" fill="#d9b15f" font-weight="500">Gopal Krishna</text>
 
   <!-- Date + city -->
   <text x="600" y="510" font-family="'Mulish','Helvetica Neue',sans-serif" font-size="22" letter-spacing="8"

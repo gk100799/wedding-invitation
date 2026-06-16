@@ -6,14 +6,14 @@ const SITE_URL = 'https://gk100799.github.io/wedding-invitation';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: `${couple.groom.name} + ${couple.bride.name} · ${wedding.shortDate}`,
+  title: `${couple.bride.name} + ${couple.groom.name} · ${wedding.shortDate}`,
   description: `Save the date — ${wedding.date}, ${wedding.city}. ${wedding.hashtag}`,
   icons: {
     icon: [{ url: `${SITE_URL}/favicon.svg`, type: 'image/svg+xml' }],
     apple: `${SITE_URL}/favicon.svg`,
   },
   openGraph: {
-    title: `${couple.groom.name} weds ${couple.bride.name}`,
+    title: `${couple.bride.name} Weds ${couple.groom.name}`,
     description: `${wedding.date} · ${wedding.city} · ${wedding.hashtag}`,
     type: 'website',
     url: SITE_URL,
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: `${couple.groom.name} & ${couple.bride.name} — ${wedding.date}, ${wedding.city}`,
+        alt: `${couple.bride.name} & ${couple.groom.name} — ${wedding.date}, ${wedding.city}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${couple.groom.name} weds ${couple.bride.name}`,
+    title: `${couple.bride.name} Weds ${couple.groom.name}`,
     description: `${wedding.date} · ${wedding.city}`,
     images: [`${SITE_URL}/og-image.png`],
   },
